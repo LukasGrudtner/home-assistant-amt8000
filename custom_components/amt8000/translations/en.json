@@ -1,0 +1,36 @@
+
+{
+  "title": "Intelbras AMT 8000 Alarm Panel",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Configure AMT 8000",
+        "description": "Enter the IP and TCP port of your IP Receiver.",
+        "data": {
+          "host": "IP Address",
+          "port": "TCP Port"
+        }
+      }
+    },
+    "abort": {
+      "already_configured": "This alarm panel is already configured."
+    }
+  },
+  "device_automation": {
+    "trigger_type": {
+      "zone_triggered": "Zone triggered"
+    }
+  },
+  "entity": {
+    "alarm_control_panel": {
+      "amt8000": {
+        "name": "AMT 8000 Alarm",
+        "state": {
+          "armed_home": "Armed (Home)",
+          "armed_away": "Armed (Away)",
+          "disarmed": "Disarmed"
+        }
+      }
+    }
+  }
+}

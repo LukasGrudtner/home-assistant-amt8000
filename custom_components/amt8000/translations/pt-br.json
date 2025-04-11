@@ -1,0 +1,36 @@
+
+{
+  "title": "Central de Alarme Intelbras AMT 8000",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Configurar AMT 8000",
+        "description": "Informe o IP e a porta do Receptor IP",
+        "data": {
+          "host": "Endereço IP",
+          "port": "Porta TCP"
+        }
+      }
+    },
+    "abort": {
+      "already_configured": "Esta central já está configurada."
+    }
+  },
+  "device_automation": {
+    "trigger_type": {
+      "zone_triggered": "Zona ativada"
+    }
+  },
+  "entity": {
+    "alarm_control_panel": {
+      "amt8000": {
+        "name": "Alarme AMT 8000",
+        "state": {
+          "armed_home": "Armado (Parcial)",
+          "armed_away": "Armado (Total)",
+          "disarmed": "Desarmado"
+        }
+      }
+    }
+  }
+}

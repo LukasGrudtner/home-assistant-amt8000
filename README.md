@@ -1,30 +1,44 @@
+# 🛡️ Intelbras AMT 8000 - Integração com Home Assistant
 
-# AMT8000 Integration for Home Assistant
+Integração nativa com a central de alarme **Intelbras AMT 8000**, via protocolo ISECNet, diretamente no Home Assistant. Permite controle, automações, sensores e notificações com suporte total a senha e até 64 zonas.
 
-Esta é uma integração personalizada para o Home Assistant que permite controlar e monitorar a central de alarme **Intelbras AMT 8000** via protocolo ISECNet e Receptor IP.
+---
 
-## 📦 Funcionalidades
+## ✅ Funcionalidades
 
-- Armar/desarmar a central de alarme (total e parcial)
-- Controle de PGMs (saídas programáveis)
-- Recebimento e exibição de imagens de sensores com câmera
-- Monitoramento de zonas/sensores via `binary_sensor`
-- Comando manual via serviço `amt8000.send_raw_command`
+- Armar / Desarmar a central com senha
+- Suporte completo a até **64 zonas**
+- Criação automática de `binary_sensor` por zona
+- Painel Lovelace com status, sensores e câmera
+- Disparo de eventos personalizados: `amt8000.zone_triggered`
+- Personalização dos nomes das zonas via interface
+- Execução de scripts com base na ativação de zonas
+- Automação integrada com `scripts.yaml` e `automations.yaml`
+- Suporte à autenticação com senhas de 4 ou 6 dígitos
 
-## 🚀 Instalação
+---
 
-1. Baixe este repositório como ZIP ou clone com Git.
-2. Copie o conteúdo da pasta `custom_components/amt8000/` para:
-   ```
-   /config/custom_components/amt8000/
-   ```
-3. Reinicie o Home Assistant.
-4. Acesse *Configurações > Dispositivos e Serviços* e adicione a integração **AMT8000**.
-5. Configure o IP e porta do seu Receptor IP Intelbras.
+## 🔒 Autenticação
 
-## 🛠️ Serviços disponíveis
+Você deve fornecer:
+- **IP** da central
+- **Porta TCP** (ex: 9009)
+- **Senha de acesso** (4 ou 6 dígitos)
 
-Você pode usar o serviço `amt8000.send_raw_command` para enviar comandos adicionais:
+---
+
+## 🧰 Instalação via HACS (repositório customizado)
+
+1. Acesse **HACS > Integrações > 3 pontos > Repositórios personalizados**
+2. Adicione: `https://github.com/sergiobaiao/home-assistant-amt8000`
+3. Tipo: `Integration`
+4. Reinicie o HA e adicione a integração pela interface
+
+---
+
+## ⚙️ Serviços e Eventos
+
+### Serviço disponível
 
 ```yaml
 service: amt8000.send_raw_command
@@ -32,32 +46,51 @@ data:
   pgm_on: 1
 ```
 
-```yaml
-service: amt8000.send_raw_command
-data:
-  status_request: true
-```
+### Evento emitido
 
 ```yaml
-service: amt8000.send_raw_command
-data:
-  request_photo: 2
+event_type: amt8000.zone_triggered
+event_data:
+  zone: Z01
+  state: on
+  name: Sala
 ```
-
-## 📷 Integração com sensores de câmera
-
-Ao receber eventos de sensores com câmera, é possível solicitar e exibir imagens via componente `camera`.
-
-## 📚 Requisitos
-
-- Central de Alarme Intelbras AMT 8000
-- Receptor IP Intelbras com acesso à rede
-- Home Assistant 2023.5 ou superior (recomendado)
-
-## 👨‍💻 Contribuições
-
-Pull Requests são bem-vindos! Você pode melhorar o parser de status, decodificação de eventos, ou adicionar cache local de imagens.
 
 ---
 
-MIT License · Desenvolvido com ❤️ por [Seu Nome ou Organização]
+## 🖼️ Painel Lovelace
+
+Veja exemplo pronto em [`examples/lovelace_dashboard.yaml`](examples/lovelace_dashboard.yaml):
+
+![Painel Lovelace AMT 8000](https://github.com/sergiobaiao/home-assistant-amt8000/raw/main/docs/amt8000_panel_example.png)
+
+---
+
+## 🧪 Exemplos incluídos
+
+Veja a pasta [`examples/`](examples/) com:
+- `automations.yaml`
+- `scripts.yaml`
+- `lovelace_dashboard.yaml`
+
+---
+
+## 🧩 Suporte futuro
+
+A integração está preparada para:
+- PGMs (atuadores)
+- Sensores com câmera
+- Sirenes
+- Teclados e controles remotos
+- Repetidores
+
+---
+
+## 👨‍💻 Desenvolvido por
+
+**Sérgio Baião** – GitHub: [@sergiobaiao](https://github.com/sergiobaiao)  
+Contribuições e pull requests são bem-vindos!
+
+---
+
+MIT License

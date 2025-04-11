@@ -1,0 +1,16 @@
+
+ligar_luzes_externas:
+  alias: Ligar Luzes Externas
+  sequence:
+    - service: switch.turn_on
+      target:
+        entity_id: switch.luzes_externas
+  mode: single
+
+ligar_sirene:
+  alias: Ativar Sirene de Alarme
+  sequence:
+    - service: switch.turn_on
+      target:
+        entity_id: switch.sirene
+  mode: single

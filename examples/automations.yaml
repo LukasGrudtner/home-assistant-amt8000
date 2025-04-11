@@ -1,0 +1,23 @@
+
+- alias: Notificar Ativação de Zona
+  trigger:
+    - platform: event
+      event_type: amt8000.zone_triggered
+      event_data:
+        state: on
+  action:
+    - service: notify.persistent_notification
+      data:
+        message: "A zona {{ trigger.event.data.zone }} foi ativada ({{ trigger.event.data.name }})."
+        title: "Alerta AMT 8000"
+    - choose:
+        - conditions:
+            - condition: template
+              value_template: "{{ trigger.event.data.zone == 'Z01' }}"
+          sequence:
+            - service: script.ligar_sirene
+        - conditions:
+            - condition: template
+              value_template: "{{ trigger.event.data.zone == 'Z02' }}"
+          sequence:
+            - service: script.ligar_luzes_externas

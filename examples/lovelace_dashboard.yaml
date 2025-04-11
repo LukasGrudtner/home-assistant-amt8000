@@ -1,0 +1,23 @@
+
+type: vertical-stack
+cards:
+  - type: alarm-panel
+    entity: alarm_control_panel.amt_8000_alarme
+    name: AMT 8000
+
+  - type: grid
+    columns: 4
+    square: false
+    cards:
+      - type: entity
+        entity: binary_sensor.zona_z01
+      - type: entity
+        entity: binary_sensor.zona_z02
+      - type: entity
+        entity: binary_sensor.zona_z03
+      - type: entity
+        entity: binary_sensor.zona_z04
+
+  - type: picture-entity
+    entity: camera.amt8000_camera_1
+    name: Última imagem
