@@ -60,4 +60,4 @@ Pull Requests são bem-vindos! Você pode melhorar o parser de status, decodific
 
 ---
 
-MIT License · Desenvolvido com ❤️ por [Seu Nome ou Organização]
+MIT License · Desenvolvido com ❤️ por Sérgio Baião
