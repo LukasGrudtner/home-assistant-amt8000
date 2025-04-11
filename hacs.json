@@ -1,0 +1,11 @@
+{
+  "name": "Intelbras AMT 8000",
+  "render_readme": true,
+  "description": "Integração nativa da central de alarme Intelbras AMT 8000 no Home Assistant",
+  "domain": "amt8000",
+  "documentation": "https://github.com/seuprojeto/home-assistant-amt8000",
+  "requirements": [],
+  "version": "1.0.0",
+  "codeowners": ["@seuusuario"],
+  "config_flow": true
+}

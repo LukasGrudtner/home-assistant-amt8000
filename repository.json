@@ -1,0 +1,14 @@
+{
+  "name": "home-assistant-amt8000",
+  "content_in_root": false,
+  "render_readme": true,
+  "domains": [
+    "amt8000"
+  ],
+  "country": "BR",
+  "homeassistant": "2023.5.0",
+  "iot_class": "local_push",
+  "integration_type": "integration",
+  "zip_release": true,
+  "filename": "amt8000_homeassistant.zip"
+}
