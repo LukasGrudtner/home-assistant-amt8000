@@ -1,3 +1,4 @@
+
 # 📝 Changelog - AMT8000 Home Assistant Integration
 
 ## [1.0.0] - Lançamento inicial

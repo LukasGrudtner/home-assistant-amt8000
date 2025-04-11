@@ -2,8 +2,11 @@
   "domain": "amt8000",
   "name": "Intelbras AMT 8000",
   "version": "1.0.0",
-  "documentation": "https://github.com/seuprojeto/amt8000",
+  "documentation": "https://github.com/sergiobaiao/home-assistant-amt8000",
   "dependencies": [],
-  "codeowners": ["@seuusuario"],
-  "requirements": []
+  "codeowners": [
+    "@sergiobaiao"
+  ],
+  "requirements": [],
+  "config_flow": true
 }
